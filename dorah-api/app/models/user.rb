@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :projects
+  has_many :project_users, through: :projects
+
   concerning :DeviseEmberAuth do
     included do
       before_save :ensure_authentication_token
