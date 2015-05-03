@@ -6,6 +6,9 @@ Router = Ember.Router.extend
 
 Router.map () ->
   @route 'login'
-  @route 'protected' # example of a route that requires login
+  @resource 'projects', () ->
+    @route 'project'
+  @resource 'tasks', () ->
+    @route 'task'
 
 `export default Router`

@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 `import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
 
-ProtectedRoute = Ember.Route.extend(AuthenticatedRouteMixin)
+ProjectRoute = Ember.Route.extend(AuthenticatedRouteMixin)
 
-`export default ProtectedRoute`
+`export default ProjectRoute`
