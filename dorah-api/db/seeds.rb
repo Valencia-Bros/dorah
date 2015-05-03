@@ -8,7 +8,7 @@
 #
 ## Create default user
 u = User.new
-u.email = %x('git config user.email')
+u.email = %x(git config user.email)
 u.password = "valencia"
 u.password_confirmation = "valencia"
 u.save!
