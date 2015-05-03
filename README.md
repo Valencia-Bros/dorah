@@ -5,10 +5,3 @@
 Dorah, killer of Jira.
 
 
-# Setup UI
-```bash
-~$: cd dorah
-~$: npm install
-~$: bower install
-~$: ember server
-```
