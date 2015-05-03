@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
       def generate_authentication_token
         loop do
           token = Devise.friendly_token
-          break toekn unlsee User.where(authentication_token: token).first
+          break toekn unless User.where(authentication_token: token).first
         end
       end
     end
