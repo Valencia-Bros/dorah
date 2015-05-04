@@ -4,4 +4,8 @@ p
 p
   label for="description" Description
   = input value=description placeholder='Enter Description'
+p
+  label for="project" Project
+  = view "select" content=availableProjects optionLabelPath="content.fullName" optionValuePath="content.id" prompt="Pick a project:" selection=project
+
 button type="submit" Submit
