@@ -1,11 +1,11 @@
 p
   label for="name" Name
-  = input value=name placeholder='Enter Name'
+  = input value=model.name placeholder='Enter Name'
 p
   label for="description" Description
-  = input value=description placeholder='Enter Description'
+  = input value=model.description placeholder='Enter Description'
 p
   label for="project" Project
-  = view "select" content=availableProjects optionLabelPath="content.fullName" optionValuePath="content.id" prompt="Pick a project:" selection=project
+  = view "select" content=availableProjects optionLabelPath="content.fullName" optionValuePath="content.id" prompt="Pick a project:" selection=model.project
 
 button type="submit" Submit

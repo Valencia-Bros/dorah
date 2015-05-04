@@ -1,7 +1,7 @@
 p
   label for="name" Name
-  = input value=name placeholder='Enter Name'
+  = input value=model.name placeholder='Enter Name'
 p
   label for="description" Description
-  = input value=description placeholder='Enter Description'
+  = input value=model.description placeholder='Enter Description'
 button type="submit" Submit
