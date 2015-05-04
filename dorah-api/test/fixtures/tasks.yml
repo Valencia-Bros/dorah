@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  priority: 
+  level_of_effort: 
+  reporter_id: 1
+  user_id: 
+
+two:
+  description: MyText
+  priority: 
+  level_of_effort: 
+  reporter_id: 1
+  user_id: 

@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503224355) do
+ActiveRecord::Schema.define(version: 20150503234241) do
 
   create_table "project_users", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "user_id",    null: false
+    t.integer  "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "project_users", ["project_id"], name: "index_project_users_on_project_id"
@@ -27,11 +27,34 @@ ActiveRecord::Schema.define(version: 20150503224355) do
     t.integer  "user_id",     null: false
     t.string   "name",        null: false
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"
+
+  create_table "task_assignees", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "task_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "task_assignees", ["task_id"], name: "index_task_assignees_on_task_id"
+  add_index "task_assignees", ["user_id"], name: "index_task_assignees_on_user_id"
+
+  create_table "tasks", force: true do |t|
+    t.text     "description",     null: false
+    t.integer  "priority"
+    t.integer  "level_of_effort"
+    t.integer  "user_id",         null: false
+    t.integer  "project_id",      null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "tasks", ["project_id"], name: "index_tasks_on_project_id"
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -45,8 +68,8 @@ ActiveRecord::Schema.define(version: 20150503224355) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "authentication_token",                null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
