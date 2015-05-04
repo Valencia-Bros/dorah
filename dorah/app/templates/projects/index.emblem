@@ -4,3 +4,4 @@ each project in model
   p project.description
 else
   p No projects yet!
+link-to "projects.new" | + Create New Project

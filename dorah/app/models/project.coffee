@@ -4,7 +4,7 @@ Project = DS.Model.extend
   description: DS.attr('string')
   name: DS.attr('string')
 
-  user: DS.belongsTo('user')
+  #user: DS.belongsTo('user')
 
   tasks: DS.hasMany('tasks')
 
