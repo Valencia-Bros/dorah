@@ -1,9 +1,12 @@
 p
-  label for="name" Name
-  = input value=model.name placeholder='Enter Name'
-p
   label for="description" Description
   = input value=model.description placeholder='Enter Description'
+p
+  label for="levelOfEffort" Level of Effort
+  = input value=model.levelOfEffort placeholder='Enter Level of Effort'
+p
+  label for="priority" Priority
+  = input value=model.priority placeholder='Priority'
 p
   label for="project" Project
   = view "select" content=availableProjects optionLabelPath="content.name" optionValuePath="content.id" prompt="Pick a project:" selection=model.project

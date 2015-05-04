@@ -1,2 +1,2 @@
-form{action "createNewTask" on="submit"}
+form{action "save" on="submit"}
   = partial "task/partials/form"

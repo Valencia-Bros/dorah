@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
 
   has_many :project_users
   has_many :users, through: :project_users
-  has_many :tasks
+  has_many :tasks, inverse_of: :project
 
   validates_associated :owner
   validates_presence_of :name
@@ -14,11 +14,19 @@ class Project < ActiveRecord::Base
   concerning :FruitHangHeight do
     included do
       def highest_priority
-        self.tasks.max_by(&:priority).priority
+        unless self.tasks.empty?
+          self.tasks.max_by(&:priority).priority
+        else
+          1
+        end
       end
 
       def lowest_priority
-        self.tasks.min_by(&:priority).priority
+        unless self.tasks.empty?
+          self.tasks.min_by(&:priority).priority
+        else
+          1
+        end
       end
 
       def highest_level_of_effort

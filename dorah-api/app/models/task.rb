@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  belongs_to :project
+  belongs_to :project, inverse_of: :tasks
   belongs_to :reporter, class_name: "User"
 
   has_many :task_assignees
@@ -11,6 +11,8 @@ class Task < ActiveRecord::Base
   validates_numericality_of :level_of_effort, allow_blank: true
   validates_associated :reporter
   validates_associated :project
+  validates :level_of_effort, presence: true, numericality: { greater_than: 0 }
+  validates :priority, presence: true, numericality: { greater_than: 0 }
 
   accepts_nested_attributes_for :assignees
 
@@ -28,7 +30,9 @@ class Task < ActiveRecord::Base
       end
 
       def relative_priority
-        [(self.priority - self.project.lowest_priority) / (self.project.highest_priority - self.project.lowest_priority),0.1].max
+        divisor = self.project.highest_priority - self.project.lowest_priority
+        divisor = 1 if divisor == 0
+        [(self.priority - self.project.lowest_priority) / (divisor),0.1].max
       end
     end
   end

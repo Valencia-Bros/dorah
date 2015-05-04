@@ -1,12 +1,10 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
+`import ModelSaveControllerMixin from 'dorah/mixins/model-save-controller'`
+`import TaskSaveControllerMixin from 'dorah/mixins/task-save-controller'`
 
 TaskEditController = Ember.Controller.extend(
-  AuthenticatedRouteMixin,
-  actions:
-    save: ->
-      model.save()
-      false
+  ModelSaveControllerMixin,
+  TaskSaveControllerMixin
 )
 
 `export default TaskEditController`

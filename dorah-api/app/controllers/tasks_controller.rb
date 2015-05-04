@@ -46,6 +46,7 @@ class TasksController < ApplicationController
         :description,
         :priority,
         :level_of_effort,
+        :project_id,
         assignees: [
           :id,
           :email,
