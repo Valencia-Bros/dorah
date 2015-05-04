@@ -23,8 +23,8 @@ p.description = "Dorah, killer of Jira"
 p.save!
 
 ## Create default task
-t = Project.first.tasks.new
+t = u.tasks.build
+t.project = u.projects.first
 t.description = "Add tasks functionality to Dorah"
 t.assignees << User.first
-t.reporter = User.first
 t.save!

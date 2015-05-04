@@ -47,14 +47,14 @@ ActiveRecord::Schema.define(version: 20150503234241) do
     t.text     "description",                 null: false
     t.integer  "priority",        default: 0, null: false
     t.integer  "level_of_effort", default: 0, null: false
-    t.integer  "reporter_id",                 null: false
+    t.integer  "user_id",                     null: false
     t.integer  "project_id",                  null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
 
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id"
-  add_index "tasks", ["reporter_id"], name: "index_tasks_on_reporter_id"
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "first_name",             default: "", null: false

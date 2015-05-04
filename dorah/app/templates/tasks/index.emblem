@@ -2,8 +2,10 @@ each task in model
   h3
     = with task.project as project
       project.name
-  p 
+  p
     task.description
+  p
+    task.fruitHangHeight
 else
   p No tasks yet!
 link-to "tasks.new" | + Create New Task

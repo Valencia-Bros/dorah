@@ -1,6 +1,6 @@
 class Task < ActiveRecord::Base
   belongs_to :project, inverse_of: :tasks
-  belongs_to :reporter, class_name: "User"
+  belongs_to :reporter, class_name: "User", foreign_key: :user_id
 
   has_many :task_assignees
   has_many :assignees, through: :task_assignees, class_name: "User"
@@ -11,8 +11,8 @@ class Task < ActiveRecord::Base
   validates_numericality_of :level_of_effort, allow_blank: true
   validates_associated :reporter
   validates_associated :project
-  validates :level_of_effort, presence: true, numericality: { greater_than: 0 }
-  validates :priority, presence: true, numericality: { greater_than: 0 }
+  validates :level_of_effort, presence: true
+  validates :priority, presence: true
 
   accepts_nested_attributes_for :assignees
 
