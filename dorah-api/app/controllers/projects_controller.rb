@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.build(project_params)
     @project.save
     render json: @project
   end
@@ -42,6 +42,9 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params[:project]
+      params.require(:project).permit(
+        :name,
+        :description
+      )
     end
 end

@@ -21,7 +21,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
     @task.save
     render json: @task
   end
@@ -42,6 +42,10 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params[:task]
+      params.require(:task).permit(
+        :description,
+        :priority,
+        :level_of_effort
+      )
     end
 end
