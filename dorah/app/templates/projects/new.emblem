@@ -1,0 +1,2 @@
+form{action "createNewProject" on="submit"}
+  = partial "project/partials/form"

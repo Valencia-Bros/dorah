@@ -7,8 +7,10 @@ Router = Ember.Router.extend
 Router.map () ->
   @route 'login'
   @resource 'projects', () ->
-    @route 'project'
-  @resource 'tasks', () ->
+    @route 'new'
+    @resource 'project', path: ":project_id", () ->
+      @route 'edit'
+  @resource 'tasks', path: ":task_id", () ->
     @route 'task'
 
 `export default Router`
