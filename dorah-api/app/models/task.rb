@@ -13,4 +13,20 @@ class Task < ActiveRecord::Base
   validates_associated :project
 
   accepts_nested_attributes_for :assignees
+
+  concerning :FruitHangHeight do
+    included do
+
+      def fruit_hang_height
+        #C=LOE
+        #B=Priority
+        #=IF(FLOOR((C2/Abs(B2 - 4.9))*100) = 0, 9001, FLOOR((C2/Abs(B2 - 4.9))*100))
+        # Version 1
+        # ((self.level_of_effort / (self.priority - 4.9).abs ) * 100).floor
+        # Version 2
+        ((self.level_of_effort / (self.priority - self.project.max_priority).abs ) * 100).floor
+      end
+
+    end
+  end
 end

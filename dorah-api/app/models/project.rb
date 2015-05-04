@@ -10,4 +10,12 @@ class Project < ActiveRecord::Base
   validates_length_of :name, in: 1..255, allow_blank: false
 
   accepts_nested_attributes_for :project_users
+
+  concerning :FruitHangHeight do
+    included do
+      def max_priority
+        self.tasks.max_by(&:priority).priority
+      end
+    end
+  end
 end
