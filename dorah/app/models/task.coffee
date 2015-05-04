@@ -1,10 +1,11 @@
 `import DS from 'ember-data'`
 
 Task = DS.Model.extend {
-  name: DS.attr('string')
-  project: DS.belongsTo('project')
+  description: DS.attr('string')
 
-  assignees: DS.hasMany('assignee')
+  project: DS.belongsTo('project', async: true)
+
+  assignees: DS.hasMany('user', async: true)
 }
 
 `export default Task`

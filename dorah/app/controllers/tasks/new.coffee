@@ -1,8 +1,8 @@
 `import Ember from 'ember'`
-`import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
+`import TaskSaveControllerMixin from 'dorah/mixins/task-save-controller'`
 
 TasksNewController = Ember.Controller.extend(
-  AuthenticatedRouteMixin,
+  TaskSaveControllerMixin,
   actions:
     createNewTask: ->
       task = @store.createRecord "task",

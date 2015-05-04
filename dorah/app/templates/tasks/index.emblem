@@ -1,7 +1,9 @@
-p List of tasks goes here
 each task in model
-  h3 task.name
-  p task.description
+  h3
+    = with task.project as project
+      project.name
+  p 
+    task.description
 else
   p No tasks yet!
 link-to "tasks.new" | + Create New Task

@@ -7,6 +7,6 @@ Project = DS.Model.extend
   owner: DS.belongsTo('user',{async:true})
   projectUsers: DS.hasMany('user',{async:true})
 
-  tasks: DS.hasMany('tasks',{async: true})
+  tasks: DS.hasMany('task', async: true)
 
 `export default Project`
