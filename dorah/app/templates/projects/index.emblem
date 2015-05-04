@@ -1,0 +1,6 @@
+p List of projects goes here
+each project in model
+  h3 project.name
+  p project.description
+else
+  p No projects yet!

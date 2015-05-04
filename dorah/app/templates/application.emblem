@@ -5,4 +5,11 @@ unless session.isAuthenticated
 else
   a click="invalidateSession" Logout
 
+ul
+  li 
+    link-to 'index' | Home
+  li 
+    link-to 'projects' | Projects
+  li 
+    link-to 'tasks' | Tasks
 = outlet

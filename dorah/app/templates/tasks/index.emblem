@@ -1,0 +1,6 @@
+p List of Tasks goes here
+each task in model
+  h3 task.name
+  p task.description
+else
+  p No tasks yet!
