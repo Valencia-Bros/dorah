@@ -23,6 +23,6 @@ p.save!
 ## Create default task
 t = Project.first.tasks.new
 t.description = "Add tasks functionality to Dorah"
-t.assignees << Assignee.first
+t.assignees << User.first
 t.reporter = User.first
 t.save!
