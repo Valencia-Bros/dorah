@@ -4,8 +4,9 @@ Project = DS.Model.extend
   description: DS.attr('string')
   name: DS.attr('string')
 
-  #user: DS.belongsTo('user')
+  owner: DS.belongsTo('user',{async:true})
+  projectUsers: DS.hasMany('user',{async:true})
 
-  tasks: DS.hasMany('tasks')
+  tasks: DS.hasMany('tasks',{async: true})
 
 `export default Project`
