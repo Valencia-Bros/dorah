@@ -1,7 +1,9 @@
-p List of projects goes here
 each project in model
-  h3 project.name
-  p project.description
+  h3 
+    link-to "project" project
+      project.name
+  p 
+    project.description
 else
   p No projects yet!
 link-to "projects.new" | + Create New Project
