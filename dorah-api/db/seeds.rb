@@ -16,7 +16,8 @@ u.password_confirmation = "valencia"
 u.save!
 
 ## Create default project
-p = User.first.projects.new
+p = Project.new
+p.owner = User.first
 p.name = "Dorah"
 p.description = "Dorah, killer of Jira"
 p.save!
