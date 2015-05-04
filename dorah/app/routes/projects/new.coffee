@@ -1,12 +1,10 @@
 `import Ember from 'ember'`
 `import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin'`
 
-ProjectsNewController = Ember.Controller.extend(
+ProjectsNewRoute = Ember.Route.extend(
   AuthenticatedRouteMixin,
-  actions:
-    save: ->
-      @model.save()
-      false
+  model: ->
+    @store.createRecord "project"
 )
 
-`export default ProjectsNewController`
+`export default ProjectsNewRoute`
