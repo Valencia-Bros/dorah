@@ -5,16 +5,16 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
-    respond_with(@tasks)
+    render json: @tasks, each_serializer: TaskSerializer
   end
 
   def show
-    respond_with(@task)
+    render json: @task
   end
 
   def new
     @task = Task.new
-    respond_with(@task)
+    render json: @task
   end
 
   def edit
@@ -23,17 +23,17 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.save
-    respond_with(@task)
+    render json: @task
   end
 
   def update
     @task.update(task_params)
-    respond_with(@task)
+    render json: @task
   end
 
   def destroy
     @task.destroy
-    respond_with(@task)
+    render json: @task
   end
 
   private

@@ -5,11 +5,11 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    respond_with(@projects)
+    render json: @projects, each_serializer: ProjectSerializer
   end
 
   def show
-    respond_with(@project)
+    render json: @project
   end
 
   def new
@@ -23,17 +23,17 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.save
-    respond_with(@project)
+    render json: @project
   end
 
   def update
     @project.update(project_params)
-    respond_with(@project)
+    render json: @project
   end
 
   def destroy
     @project.destroy
-    respond_with(@project)
+    render json: @project
   end
 
   private
