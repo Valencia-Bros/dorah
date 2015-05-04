@@ -13,8 +13,20 @@ class Project < ActiveRecord::Base
 
   concerning :FruitHangHeight do
     included do
-      def max_priority
+      def highest_priority
         self.tasks.max_by(&:priority).priority
+      end
+
+      def lowest_priority
+        self.tasks.min_by(&:priority).priority
+      end
+
+      def highest_level_of_effort
+        self.tasks.max_by(&:level_of_effort).level_of_effort
+      end
+
+      def lowest_level_of_effort
+        self.tasks.min_by(&:level_of_effort).level_of_effort
       end
     end
   end

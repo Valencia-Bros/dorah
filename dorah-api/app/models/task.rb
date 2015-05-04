@@ -24,7 +24,15 @@ class Task < ActiveRecord::Base
         # Version 1
         # ((self.level_of_effort / (self.priority - 4.9).abs ) * 100).floor
         # Version 2
-        ((self.level_of_effort / (self.priority - self.project.max_priority).abs ) * 100).floor
+        (self.normalized_level_of_effort / [0.1,self.normalized_priority].max) * 100
+      end
+
+      def normalized_priority
+        (self.priority - self.project.lowest_priority) / (self.project.highest_priority - self.project.lowest_priority)
+      end
+
+      def normalized_level_of_effort
+        (self.level_of_effort - self.project.lowest_level_of_effort) / (self.project.highest_level_of_effort - self.project.lowest_level_of_effort)
       end
 
     end
