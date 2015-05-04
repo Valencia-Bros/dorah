@@ -7,8 +7,8 @@ class Task < ActiveRecord::Base
 
   validates_presence_of :description
   validates_length_of :description, in: 1..255
-  validates_numericality_of :priority
-  validates_numericality_of :level_of_effort
+  validates_numericality_of :priority, allow_blank: true
+  validates_numericality_of :level_of_effort, allow_blank: true
   validates_associated :reporter
   validates_associated :project
 end
