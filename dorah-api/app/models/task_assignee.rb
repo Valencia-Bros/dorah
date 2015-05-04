@@ -1,5 +1,5 @@
 class TaskAssignee < ActiveRecord::Base
-  belongs_to :assignee, foreign_key: :user_id
+  belongs_to :assignee, class_name: "User"
   belongs_to :task
 
   validates_associated :task

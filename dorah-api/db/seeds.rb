@@ -10,6 +10,7 @@
 ## Create default user
 u = User.new
 u.email = %x(git config user.email)
+u.first_name, u.last_name = %x(git config user.name).split(" ")
 u.password = "valencia"
 u.password_confirmation = "valencia"
 u.save!
@@ -23,6 +24,6 @@ p.save!
 ## Create default task
 t = Project.first.tasks.new
 t.description = "Add tasks functionality to Dorah"
-t.assignees << Assignee.first
+t.assignees << User.first
 t.reporter = User.first
 t.save!
