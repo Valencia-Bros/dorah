@@ -5,6 +5,7 @@ class TaskSerializer < ActiveModel::Serializer
              :description,
              :level_of_effort,
              :priority,
+             :fruit_hang_height,
              :project_id
 
   has_one :reporter
