@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
   belongs_to :reporter, class_name: "User", foreign_key: :user_id
 
   has_many :task_assignees
-  has_many :assignees, through: :task_assignees
+  has_many :assignees, through: :task_assignees, foreign_key: :user_id
 
   validates_presence_of :description
   validates_length_of :description, in: 1..255

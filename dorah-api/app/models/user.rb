@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   has_many :projects
   has_many :project_users, through: :projects
 
+  has_many :task_assignees
+  has_many :tasks, through: :task_assignees
+
   concerning :DeviseEmberAuth do
     included do
       before_save :ensure_authentication_token
