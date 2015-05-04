@@ -44,13 +44,13 @@ ActiveRecord::Schema.define(version: 20150503234241) do
   add_index "task_assignees", ["task_id"], name: "index_task_assignees_on_task_id"
 
   create_table "tasks", force: true do |t|
-    t.text     "description",     null: false
-    t.integer  "priority"
-    t.integer  "level_of_effort"
-    t.integer  "reporter_id",     null: false
-    t.integer  "project_id",      null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.text     "description",                 null: false
+    t.integer  "priority",        default: 0, null: false
+    t.integer  "level_of_effort", default: 0, null: false
+    t.integer  "reporter_id",                 null: false
+    t.integer  "project_id",                  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id"
