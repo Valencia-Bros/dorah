@@ -4,4 +4,11 @@ class Task < ActiveRecord::Base
 
   has_many :task_assignees
   has_many :assignees, through: :task_assignees
+
+  validates_presence_of :description
+  validates_length_of :description, in: 1..255
+  validates_numericality_of :priority
+  validates_numericality_of :level_of_effort
+  validates_associated :reporter
+  validates_associated :project
 end
