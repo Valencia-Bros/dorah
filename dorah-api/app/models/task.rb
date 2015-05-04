@@ -11,4 +11,6 @@ class Task < ActiveRecord::Base
   validates_numericality_of :level_of_effort, allow_blank: true
   validates_associated :reporter
   validates_associated :project
+
+  accepts_nested_attributes_for :assignees
 end

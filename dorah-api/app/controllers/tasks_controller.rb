@@ -45,7 +45,13 @@ class TasksController < ApplicationController
       params.require(:task).permit(
         :description,
         :priority,
-        :level_of_effort
+        :level_of_effort,
+        assignees: [
+          :id,
+          :email,
+          :first_name,
+          :last_name
+        ]
       )
     end
 end

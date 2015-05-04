@@ -8,4 +8,6 @@ class Project < ActiveRecord::Base
   validates_associated :owner
   validates_presence_of :name
   validates_length_of :name, in: 1..255, allow_blank: false
+
+  accepts_nested_attributes_for :project_users
 end
