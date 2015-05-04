@@ -9,6 +9,12 @@ class User < ActiveRecord::Base
   has_many :task_assignees, foreign_key: :assignee_id
   has_many :tasks, through: :task_assignees
 
+  validates_presence_of :first_name, :last_name
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   concerning :DeviseEmberAuth do
     included do
       before_save :ensure_authentication_token

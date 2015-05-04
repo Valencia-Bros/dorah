@@ -4,6 +4,6 @@ class TaskSerializer < ActiveModel::Serializer
              :level_of_effort,
              :priority
 
-  has_one :reporter, serializer: ReporterSerializer
-  has_many :assignees, serializer: AssigneeSerializer
+  has_one :reporter, serializer: UserSerializer
+  has_many :assignees, serializer: UserSerializer
 end
