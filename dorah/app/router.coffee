@@ -10,7 +10,9 @@ Router.map () ->
     @route 'new'
     @resource 'project', path: ":project_id", () ->
       @route 'edit'
-  @resource 'tasks', path: ":task_id", () ->
-    @route 'task'
+  @resource 'tasks', () ->
+    @route 'new'
+    @resource 'task', path: ":project_id", () ->
+      @route 'edit'
 
 `export default Router`

@@ -1,0 +1,2 @@
+form{action "editTask" on="submit"}
+  = partial "task/partials/form"
