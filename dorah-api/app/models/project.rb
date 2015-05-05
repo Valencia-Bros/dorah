@@ -12,6 +12,7 @@ class Project < ActiveRecord::Base
   validates_length_of :name, in: 1..255, allow_blank: false
 
   accepts_nested_attributes_for :project_users
+  accepts_nested_attributes_for :task_statuses
 
   concerning :FruitHangHeight do
     included do

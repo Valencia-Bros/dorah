@@ -8,4 +8,5 @@ class ProjectSerializer < ActiveModel::Serializer
   has_one :owner
   has_many :project_users, embed_in_root: false
   has_many :tasks, embed_in_root: false
+  has_many :task_statuses, embed_in_root: false
 end

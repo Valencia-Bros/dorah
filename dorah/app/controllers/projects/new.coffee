@@ -4,6 +4,13 @@
 ProjectsNewController = Ember.Controller.extend(
   AuthenticatedRouteMixin,
   actions:
+    deleteTaskStatus: (taskStatus) ->
+      taskStatus.destroyRecord()
+      false
+    newTaskStatus: (project) ->
+      taskStatus = @store.createRecord "taskStatus"
+      project.get('taskStatuses').addObject taskStatus
+      false
     save: ->
       @model.save()
       false

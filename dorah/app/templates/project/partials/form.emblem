@@ -4,4 +4,10 @@ p
 p
   label for="description" Description
   = input value=model.description placeholder='Enter Description'
+each taskStatus in model.taskStatuses  
+  p
+    = input value=taskStatus.name placeholder='Enter Task Status'
+    button{action "deleteTaskStatus" taskStatus} x
+p
+  button{action "newTaskStatus" model} New Task Status
 button type="submit" Submit

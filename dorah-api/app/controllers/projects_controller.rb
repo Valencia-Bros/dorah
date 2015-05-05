@@ -45,11 +45,16 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(
         :name,
         :description,
+        :task_statuses,
         project_users: [
           :id,
           :email,
           :first_name,
           :last_name
+        ],
+        task_statuses_attributes: [
+          :name,
+          :project_id
         ]
       )
     end

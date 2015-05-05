@@ -1,2 +1,2 @@
-form{action "editProject" on="submit"}
+form{action "save" on="submit"}
   = partial "project/partials/form"

@@ -6,7 +6,8 @@ class TaskSerializer < ActiveModel::Serializer
              :level_of_effort,
              :priority,
              :fruit_hang_height,
-             :project_id
+             :project_id,
+             :task_status_id
 
   has_one :reporter
   has_many :assignees, embed_in_root: false

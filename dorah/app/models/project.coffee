@@ -8,5 +8,6 @@ Project = DS.Model.extend
   projectUsers: DS.hasMany('user',{async:true})
 
   tasks: DS.hasMany('task', async: true)
+  taskStatuses: DS.hasMany('taskStatus', async: true)
 
 `export default Project`
