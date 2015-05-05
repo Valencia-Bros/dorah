@@ -2,6 +2,8 @@ class Task < ActiveRecord::Base
   belongs_to :project, inverse_of: :tasks
   belongs_to :reporter, class_name: "User", foreign_key: :user_id
 
+  has_one :task_status, inverse_of: :task
+
   has_many :task_assignees
   has_many :assignees, through: :task_assignees, class_name: "User"
 
