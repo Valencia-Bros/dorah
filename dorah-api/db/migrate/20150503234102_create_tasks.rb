@@ -6,6 +6,7 @@ class CreateTasks < ActiveRecord::Migration
       t.integer :level_of_effort, null: false, default: 0
       t.references :user, index: true, null: false
       t.references :project, index: true, null: false
+      t.references :task_status, index: true, null: false
 
       t.timestamps null: false
     end

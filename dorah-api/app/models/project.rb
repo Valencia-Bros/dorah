@@ -1,9 +1,11 @@
 class Project < ActiveRecord::Base
   belongs_to :owner, class_name: "User", foreign_key: :user_id
 
+
   has_many :project_users
   has_many :users, through: :project_users
   has_many :tasks, inverse_of: :project
+  has_many :task_statuses, inverse_of: :project
 
   validates_associated :owner
   validates_presence_of :name
