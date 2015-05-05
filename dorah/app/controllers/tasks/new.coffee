@@ -5,6 +5,13 @@
 TasksNewController = Ember.Controller.extend(
   ModelSaveControllerMixin,
   TaskSaveControllerMixin
+
+  queryParams: [
+    'project_id'
+  ]
+
+  project_id: null
+
 )
 
 `export default TasksNewController`

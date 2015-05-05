@@ -1,11 +1,11 @@
-h3 
+h3
   model.name
-p 
+p
   model.description
 h4 Tasks
 each task in model.tasks
-  p 
+  p
     task.description
 else
   p No tasks yet
-link-to "tasks.new" | + Create New Task
+link-to "tasks.new" (query-params project_id=model.id)  | + Create New Task

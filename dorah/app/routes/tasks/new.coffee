@@ -3,8 +3,17 @@
 
 TasksNewRoute = Ember.Route.extend(
   AuthenticatedRouteMixin,
-  model: ->
-    @store.createRecord "task"
+  queryParams:
+    project_id:
+      refreshModel: true
+
+  model: (params) ->
+    task = @store.createRecord "task"
+    if !!params.project_id
+      @store.find('project',params.project_id).then (project) =>
+        task.set('project',project)
+    task
+
 )
 
 `export default TasksNewRoute`
